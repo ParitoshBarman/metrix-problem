@@ -6,15 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #inputarea{
-            width: 50%;
+        #inputarea {
+            width: 300px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
-        #inputarea{
+
+        #inputarea {
             width: 25%;
             /* height: 25%; */
+        }
+
+        #resultarea {
+            width: 300px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        #resultarea>div {
+            background-color: aqua;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -24,7 +41,7 @@
 
     <div id="inputarea">
         <!-- <input type="number" name="" id="0-0"> -->
-        
+
     </div>
 
     <div id="actionarea">
@@ -32,9 +49,19 @@
     </div>
 
     <div id="resultarea">
+        <!-- <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div> -->
 
     </div>
 
+    <div id="sumofdia"></div>
 
     <script>
 
@@ -64,8 +91,8 @@
         // }
 
 
-        for(let i=0; i<3; i++){
-            for(let j=0; j<3; j++){
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
                 let inputElement = document.createElement('input')
                 inputElement.setAttribute('type', 'number')
                 inputElement.setAttribute('id', `${i}-${j}`)
@@ -75,16 +102,26 @@
         }
 
 
-function result(){
-    console.log('working')
+        function result() {
+            console.log('working')
+            let resultarea = document.getElementById('resultarea')
+            let sum = 0
 
-    for(let k=0; k<3; k++){
-        for(let l=0;l<3;l++){
-            let inputValue = document.getElementById(`${k}-${l}`);
-            console.log(inputValue)
+            for (let k = 0; k < 3; k++) {
+                for (let l = 0; l < 3; l++) {
+                    let singleDiv = document.createElement('div')
+                    let inputValue = document.getElementById(`${k}-${l}`).value;
+                    singleDiv.textContent = inputValue;
+                    if (k == l) {
+                        singleDiv.style.backgroundColor = 'red'
+                        sum += Number(inputValue);
+                    }
+                    resultarea.appendChild(singleDiv);
+                }
+            }
+            document.getElementById("sumofdia").textContent = `Total Sum of Diagonal: ${sum}`;
+
         }
-    }
-}
 
     </script>
 </body>
