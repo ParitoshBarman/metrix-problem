@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #inputarea{
+            width: 50%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        #inputarea{
+            width: 25%;
+            /* height: 25%; */
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="inputarea">
+        <!-- <input type="number" name="" id="0-0"> -->
+        
+    </div>
+
+    <div id="actionarea">
+        <button onclick="result()">Result</button>
+    </div>
+
+    <div id="resultarea">
+
+    </div>
+
+
+    <script>
+
+        // Problem Breakdown (from the interview):
+        // ✅ Task:
+
+        // Take 9 inputs (3x3 matrix)
+
+        // Show the matrix on UI after button click
+
+        // Highlight or calculate:
+
+        // Left-to-right diagonal (main diagonal)
+
+        // Right-to-left diagonal (secondary diagonal)
+
+        // Print the sum of both diagonals
+
+
+        let inputarea = document.getElementById("inputarea")
+
+        // for(let i=0; i<9; i++){
+        //     let inputElement = document.createElement('input')
+        //     inputElement.setAttribute('type', 'number')
+        //     inputElement.setAttribute('id', `${i}`)
+        //     inputarea.appendChild(inputElement)
+        // }
+
+
+        for(let i=0; i<3; i++){
+            for(let j=0; j<3; j++){
+                let inputElement = document.createElement('input')
+                inputElement.setAttribute('type', 'number')
+                inputElement.setAttribute('id', `${i}-${j}`)
+                inputarea.appendChild(inputElement)
+            }
+
+        }
+
+
+function result(){
+    console.log('working')
+
+    for(let k=0; k<3; k++){
+        for(let l=0;l<3;l++){
+            let inputValue = document.getElementById(`${k}-${l}`);
+            console.log(inputValue)
+        }
+    }
+}
+
+    </script>
+</body>
+
+</html>
